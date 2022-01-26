@@ -13,7 +13,8 @@
 
                 <div id="fill-in-row">
                     <input type="text" id="add-task" name="newtask" value="Task name">
-                    <button type="button">Add</button> <br> <br> <br>
+                    <button type="button" id="add-btn">Add</button>
+                    <button type="button" id="clear-all-btn">Clear list</button> <br> <br> <br>
                 </div>
 
         </div>
@@ -23,9 +24,9 @@
 
                 <div id="task-row">
                     <input type="checkbox" id="to-do-check">
-                    <input type="text" name="fname" value="" disabled>
-                    <button type="button">Change</button>
-                    <button type="button">Delete</button><br> <br>
+                    <input type="text" class="text-field" value="" disabled>
+                    <button type="button" class="change-btn">Change</button>
+                    <button type="button" id="delete-btn">Delete</button><br> <br>
 
                 </div> 
 
@@ -42,10 +43,16 @@
                     <button type="button">Change</button>
                     <button type="button">Delete</button><br> <br>
 
-
                 </div>
 
         </div>
+
+        <div id="reset-container">
+            <p>Press button to reset list!</p>
+                    <button type="button" id="reset-btn">This list is junk</button>
+        </div>
+
+
 </section>
 
 
