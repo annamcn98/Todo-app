@@ -4,6 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do-list</title>
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 
@@ -14,37 +16,42 @@
                 <div id="fill-in-row">
                     <input type="text" id="add-task" name="newtask" value="Task name">
                     <button type="button" id="add-btn">Add</button>
-                    <button type="button" id="clear-all-btn">Clear list</button> <br> <br> <br>
                 </div>
 
         </div>
 
-        <div id="tasks-container">
+        <div id="task-container">
             <h3>Tasks</h3>
+                <ul>
 
-                <div id="task-row">
-                    <input type="checkbox" id="to-do-check">
+            <!-- Omkodad i js och appended to ('task-container'): -->
+                
+            <!-- <div id="task-row">
+                   <li><input type="checkbox" id="to-do-check">
                     <input type="text" class="text-field" value="" disabled>
-                    <button type="button" class="change-btn">Change</button>
+                    <button type="button" id="change-btn">Change</button>
                     <button type="button" id="delete-btn">Delete</button><br> <br>
+                   </li>
+                </div>
+                 -->
 
-                </div> 
-
-
+            </ul>
         </div>
 
         <div id="done-container">
             <h3>Done</h3>
+                <ul>
 
-                <div id="done-row">
-
-                    <input type="checkbox" id="done-check" checked>
+                <!-- Denna diva ska kodas om i js och appendas till ('done-container'): -->
+                <!-- <div id="done-row">
+                    <li><input type="checkbox" id="done-check" checked>
                     <input type="text" name="fname" value="" disabled>
                     <button type="button">Change</button>
-                    <button type="button">Delete</button><br> <br>
+                    <button type="button" class="delete-btn2">Delete</button><br> <br>
+                    </li>
+                </div> -->
 
-                </div>
-
+            </ul>
         </div>
 
         <div id="reset-container">
