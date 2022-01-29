@@ -1,0 +1,80 @@
+ul {
+    list-style-type:none;
+}
+body {
+    background-color: rgb(201, 215, 200);
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+
+
+#input-text-task-list, #text-field {
+    background-color: white;
+    border: white;
+    border-radius: 50px;
+    padding: 8px 20px;
+    margin: 10px 10px;
+}
+
+
+#add-btn, #change-btn {
+
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px 15px; 
+    margin: 2px;
+    border:none;
+}
+
+#delete-btn, #reset-btn {
+    background-color: rgb(170, 187, 169);
+    border-radius: 50px;
+    padding: 5px 15px; 
+    margin: 2px;
+    border:none;
+}
+
+#delete-btn:hover, #reset-btn:hover{
+    background-color: rgb(225, 200, 201);
+}
+#add-btn:hover, #change-btn:hover{
+    background-color: rgb(242, 242, 242);
+    border: none;
+}
+
+#input-text-task-list:disabled {
+    background-color: rgb(235, 235, 235);
+}
+
+
+#task-list, #done-list{
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+#fill-in-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+#reset-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 60px 20px;
+
+}
+
+h3, p{
+    display: flex;
+    justify-content: center;
+    margin: 5px 20px;
+}
+
+
