@@ -97,7 +97,7 @@ let resetBtn = document.getElementById('reset-btn');
 resetBtn.addEventListener('click', function(e) {
     let clickedBtn = e.target;
     liTaskList.parentNode.remove();
-    clickedBtn.parentNode.innerHTML = `Your list is empty!`;
+    clickedBtn.parentNode.innerHTML = `Your list is empty!<span style='font-size:30px;'>&#10024;</span>`;
     
 })
 }
