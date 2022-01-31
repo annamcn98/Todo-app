@@ -14,7 +14,7 @@ addBtn.addEventListener('click', function(e) {
     if (textField.value === '') {
        let errorMessage = document.createElement('div')
         errorMessage.id = "error-message";
-        errorMessage.innerText= `A task can't be empty`;
+        errorMessage.innerHTML= `<p> A task can't be empty</p>`;
         document.getElementById('fill-in-container').append(errorMessage);
 
     } else {
@@ -88,7 +88,7 @@ inputCheckbox.addEventListener('click', function(e) {
     let clickedBox = e.target;
     clickedBox.parentNode.remove();
     inputCheckbox.disabled = true;
-    ulDoneList.append(liTaskList, inputCheckbox, inputTextTaskList, changeBtn, deleteBtn);
+    ulDoneList.append(liTaskList);
     
 })
 
