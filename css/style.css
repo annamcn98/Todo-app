@@ -11,17 +11,24 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
     border: white;
     border-radius: 50px;
     padding: 8px 20px;
-    margin: 10px 10px;
+    margin: 3px 10px;
 }
 
 
-#add-btn, #change-btn {
-
+#change-btn {
     background-color: white;
     border-radius: 50px;
     padding: 5px 15px; 
     margin: 2px;
-    border:none;
+    border: none;
+}
+
+#add-btn {
+    background-color: white;
+    border-radius: 50px;
+    padding: 0px 15px; 
+    margin: 2px;
+    border: none;
 }
 
 #delete-btn, #reset-btn {
@@ -45,16 +52,10 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
 }
 
 
-#task-list, #done-list{
+#task-list, #done-list, #fill-in-row{
     display: flex;
     justify-content: center;
     margin: 10px 20px;
-}
-
-#fill-in-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
 }
 
 #reset-container{
@@ -71,10 +72,10 @@ h1 {
 
 }
 
-h3, p{
+h3, p, #error-message{
     display: flex;
     justify-content: center;
-    margin: 5px 20px;
+    margin: 20px 0px;
 }
 
 
