@@ -2,7 +2,8 @@ ul {
     list-style-type:none;
 }
 body {
-    background-color: rgb(201, 215, 200);
+    font-family: 'Spartan', sans-serif;
+    background: linear-gradient(to top right, rgb(140, 211, 135), rgb(196, 169, 214), rgb(232, 240, 131)) no-repeat fixed;
 }
 
 #input-text-task-list, #text-field {
@@ -30,7 +31,7 @@ body {
     border: none;
 }
 
-#delete-btn, #reset-btn {
+#delete-btn {
     background-color: rgb(170, 187, 169);
     border-radius: 50px;
     padding: 5px 15px; 
@@ -38,11 +39,23 @@ body {
     border:none;
 }
 
-#delete-btn:hover, #reset-btn:hover{
+#reset-btn {
+    background-color: rgb(225, 200, 201);
+    border-radius: 50px;
+    padding: 15px 15px; 
+    margin: 2px;
+    border:none;
+}
+
+#delete-btn:hover{
     background-color: rgb(225, 200, 201);
 }
+
+#reset-btn:hover {
+    background-color: rgb(240, 164, 196);
+}
 #add-btn:hover, #change-btn:hover{
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(170, 187, 169);
     border: none;
 }
 
@@ -51,7 +64,7 @@ body {
 }
 
 
-#task-list, #done-list, #fill-in-row{
+#task-list, #done-list, #fill-in-row, #error-message{
     display: flex;
     justify-content: center;
     margin: 10px 20px;
@@ -59,6 +72,7 @@ body {
 
 #reset-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 50px;
@@ -68,17 +82,26 @@ h1 {
     display: flex;
     justify-content: center;
     margin: 60px 20px;
-    font-family: 'Spartan', sans-serif;
-
 
 }
 
-h3, p, #error-message{
+h3 {
     display: flex;
     justify-content: center;
-    margin: 20px 0px;
-    font-family: 'Spartan', sans-serif;
-
+    margin: 10px 0px;
 }
 
+
+#error-message p{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+    width: 350px;
+    font-size: 14px;
+    padding: 15px 10px;
+    background-color: rgb(225, 200, 201);
+    color: rgb(146, 63, 66);
+    /* font-weight: bolder; */
+    border-radius: 10px;
+}
 
