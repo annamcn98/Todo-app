@@ -108,25 +108,19 @@ inputCheckbox.addEventListener('click', function(e) {
 // Reset all button
 let resetBtn = document.getElementById('reset-btn');
 resetBtn.addEventListener('click', function(e) {
+
     let clickedBtn = e.target;
-    let toDoListLength = document.querySelectorAll("#ul-task-list li").length;
-    for(let i = 0; i < toDoListLength; i++) {
-    console.log(i)
-        document.getElementById('ul-task-list').firstChild.remove();
-    }
+        document.getElementById('ul-task-list').innerHTML = "";
+        document.getElementById('ul-done-list').innerHTML = "";
+        clickedBtn.parentNode.innerHTML = `<p>Your list is empty!</p><span style='font-size:30px;'>&#9749;&#10024;</span>`;
 
-    let doneListLength = document.querySelectorAll("#ul-done-list li").length;
-    for(let i = 0; i < doneListLength; i++) {
-        console.log(i)
-                document.getElementById('ul-done-list').firstChild.remove();
     }
-
-    clickedBtn.parentNode.innerHTML = `<p>Your list is empty!</p><span style='font-size:30px;'>&#9749;&#10024;</span>`;
     
-})
-}
+)}
+
 })
 
+//ist för remove, töm ul
 
 
 
