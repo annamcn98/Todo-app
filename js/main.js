@@ -14,7 +14,7 @@ addBtn.addEventListener('click', function(e) {
     if (textField.value === '') {
        let errorMessage = document.createElement('div')
         errorMessage.id = "error-message";
-        errorMessage.innerHTML= `<p> A task can't be empty</p>`;
+        errorMessage.innerHTML= `<p>You can't add an empty task</p>`;
         document.getElementById('fill-in-container').append(errorMessage);
 
     } else {
@@ -58,10 +58,24 @@ changeBtn.addEventListener('click', function(e) {
     if(clickedBtn.innerHTML == `Change`) {
         clickedBtn.innerHTML = `Save`;
         inputTextTaskList.disabled = false;
+
     } else {
+        let existingErrorMessage = document.getElementById('error-message')
+
+
+        if(existingErrorMessage){
+            existingErrorMessage.remove()
+            
+        
+        } if(inputTextTaskList.value.length == 0 || !inputTextTaskList.value.trim()){
+            let errorMessage = document.createElement('div')
+            errorMessage.id = "error-message";
+            errorMessage.innerHTML= `<p>Text is requirered </p>`;
+            liTaskList.append(errorMessage);
+        } else {
         clickedBtn.innerHTML = `Change`;
         inputTextTaskList.disabled = true;
-    }
+    }}
 
 })
 
@@ -77,7 +91,6 @@ deleteBtn.addEventListener('click', function(e) {
     clickedBtn.parentNode.remove();
 
 })
-
 //
 let ulDoneList = document.getElementById('ul-done-list');
 
@@ -96,8 +109,19 @@ inputCheckbox.addEventListener('click', function(e) {
 let resetBtn = document.getElementById('reset-btn');
 resetBtn.addEventListener('click', function(e) {
     let clickedBtn = e.target;
-    liTaskList.parentNode.remove();
-    clickedBtn.parentNode.innerHTML = `Your list is empty!<span style='font-size:30px;'>&#10024;</span>`;
+    let toDoListLength = document.querySelectorAll("#ul-task-list li").length;
+    for(let i = 0; i < toDoListLength; i++) {
+    console.log(i)
+        document.getElementById('ul-task-list').firstChild.remove();
+    }
+
+    let doneListLength = document.querySelectorAll("#ul-done-list li").length;
+    for(let i = 0; i < doneListLength; i++) {
+        console.log(i)
+                document.getElementById('ul-done-list').firstChild.remove();
+    }
+
+    clickedBtn.parentNode.innerHTML = `<p>Your list is empty!</p><span style='font-size:30px;'>&#9749;&#10024;</span>`;
     
 })
 }
