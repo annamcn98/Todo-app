@@ -1,0 +1,107 @@
+ul {
+    list-style-type:none;
+}
+body {
+    font-family: 'Spartan', sans-serif;
+    background: linear-gradient(to top right, rgb(140, 211, 135), rgb(196, 169, 214), rgb(232, 240, 131)) no-repeat fixed;
+}
+
+#input-text-task-list, #text-field {
+    background-color: white;
+    border: white;
+    border-radius: 50px;
+    padding: 8px 20px;
+    margin: 3px 10px;
+}
+
+
+#change-btn {
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px 15px; 
+    margin: 2px;
+    border: none;
+}
+
+#add-btn {
+    background-color: white;
+    border-radius: 50px;
+    padding: 0px 15px; 
+    margin: 2px;
+    border: none;
+}
+
+#delete-btn {
+    background-color: rgb(170, 187, 169);
+    border-radius: 50px;
+    padding: 5px 15px; 
+    margin: 2px;
+    border:none;
+}
+
+#reset-btn {
+    background-color: rgb(225, 200, 201);
+    border-radius: 50px;
+    padding: 15px 15px; 
+    margin: 2px;
+    border:none;
+}
+
+#delete-btn:hover{
+    background-color: rgb(225, 200, 201);
+}
+
+#reset-btn:hover {
+    background-color: rgb(240, 164, 196);
+}
+#add-btn:hover, #change-btn:hover{
+    background-color: rgb(170, 187, 169);
+    border: none;
+}
+
+#input-text-task-list:disabled {
+    background-color: rgb(235, 235, 235);
+}
+
+
+#task-list, #done-list, #fill-in-row, #error-message{
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+#reset-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 60px 20px;
+
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+#error-message p{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+    width: 350px;
+    font-size: 14px;
+    padding: 15px 10px;
+    background-color: rgb(225, 200, 201);
+    color: rgb(146, 63, 66);
+    /* font-weight: bolder; */
+    border-radius: 10px;
+}
+
