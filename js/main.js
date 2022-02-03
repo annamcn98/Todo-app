@@ -1,3 +1,4 @@
+let ulDoneList = document.getElementById('ul-done-list');
 
 
 //When clicking Add-btn
@@ -62,34 +63,7 @@ changeBtn.innerHTML = `Change`;
 
 liTaskList.append(changeBtn)
 
-changeBtn.addEventListener('click', function(e) {
-    editTask(e);
-})
-
-function editTask(e) { 
-
-    if(e.target.innerHTML == `Change`) {
-        e.target.innerHTML = `Save`;
-        e.target.previousSibling.disabled = false;
-
-    } else {
-        let existingErrorMessage = document.getElementById('error-message')
-
-
-        if(existingErrorMessage){
-            existingErrorMessage.remove()
-            
-        
-        } if(e.target.previousSibling.value.length == 0 || !e.target.previousSibling.value.trim()){
-            let errorMessage = document.createElement('div')
-            errorMessage.id = "error-message";
-            errorMessage.innerHTML= `<p>Text is requirered </p>`;
-            e.target.parentNode.append(errorMessage);
-        } else {
-        e.target.innerHTML = `Change`;
-        e.target.previousSibling.disabled = true;
-    }}
-}
+changeBtn.addEventListener('click', taskBtns.editTask);
 
 
 // Delete task button
@@ -99,50 +73,15 @@ deleteBtn.innerHTML =`Delete`;
 
 liTaskList.append(deleteBtn)
 
-deleteBtn.addEventListener('click', function(e) {
-    
-deleteTask(e);
-})
-
-
-function deleteTask(e) {
-    e.target.parentNode.remove();
-
-    let deleteBtn = document.createElement('button');
-    deleteBtn.id = "delete-btn";
-    deleteBtn.innerHTML =`Delete`;
-
-    liTaskList.append(deleteBtn)
-}
+deleteBtn.addEventListener('click', taskBtns.deleteTask);
 
 
 //
-let ulDoneList = document.getElementById('ul-done-list');
-
-
-
-//
-inputCheckbox.addEventListener('click', function(e) {
-
-    taskCompleted(e);
-})
-
-function taskCompleted(e) { 
-e.target.parentNode.remove();
-inputCheckbox.disabled = true;
-ulDoneList.append(liTaskList);
-}
-
+inputCheckbox.addEventListener('click', taskBtns.taskCompleted);
 
 // Reset all button
 let resetBtn = document.getElementById('reset-btn');
-resetBtn.addEventListener('click', function(e) {
-    resetList(e);
-    
-    }
-    
-)}
-}
+resetBtn.addEventListener('click', resetList);
 
 function resetList(e) {
         document.getElementById('ul-task-list').innerHTML = "";
@@ -150,5 +89,48 @@ function resetList(e) {
     
         e.target.parentNode.innerHTML += `<h3>Your list is empty!</h3><span style='font-size:30px;'>&#9749; &#10024;</span>`;
 }
+
+}
+}
+
+const taskBtns = {
+    
+    editTask(e) { 
+
+        if(e.target.innerHTML == `Change`) {
+            e.target.innerHTML = `Save`;
+            e.target.previousSibling.disabled = false;
+    
+        } else {
+            let existingErrorMessage = document.getElementById('error-message')
+    
+    
+            if(existingErrorMessage){
+                existingErrorMessage.remove()
+                
+            
+            } if(e.target.previousSibling.value.length == 0 || !e.target.previousSibling.value.trim()){
+                let errorMessage = document.createElement('div')
+                errorMessage.id = "error-message";
+                errorMessage.innerHTML= `<p>Text is requirered </p>`;
+                e.target.parentNode.append(errorMessage);
+            } else {
+            e.target.innerHTML = `Change`;
+            e.target.previousSibling.disabled = true;
+        }}
+    }
+    ,
+    deleteTask(e) {
+        e.target.parentNode.remove();
+        
+    }
+    ,
+    taskCompleted(e) { 
+        e.target.parentNode.remove();
+        e.target.disabled = true;
+        ulDoneList.append(e.target.parentNode);
+        }
+}
+
 
 
