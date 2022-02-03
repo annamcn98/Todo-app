@@ -1,17 +1,27 @@
 
-//When clicking Add-btn:
+
+//When clicking Add-btn
 let addBtn = document.getElementById('add-btn');
 addBtn.addEventListener('click', function(e) {
+  
+    addNewTask(e);
+})
+
+
+function addNewTask(e) {
+    if(document.querySelector("div span")) {
+        e.target.parentNode.parentNode.parentNode.childNodes[7].lastChild.remove();
+        e.target.parentNode.parentNode.parentNode.childNodes[7].lastChild.remove();
+    }
 
     //Error message when trying to sumbit empty text field
     let textField = document.getElementById('text-field')
     let existingErrorMessage = document.getElementById('error-message')
-    console.log(existingErrorMessage)
     if(existingErrorMessage){
      existingErrorMessage.remove()
     }
 
-    if (textField.value === '') {
+    if (textField.value === '' || !textField.value.trim()) {
        let errorMessage = document.createElement('div')
         errorMessage.id = "error-message";
         errorMessage.innerHTML= `<p>You can't add an empty task</p>`;
@@ -19,7 +29,7 @@ addBtn.addEventListener('click', function(e) {
 
     } else {
 
-//Adds task to task list, creates "task row"- elements
+//Adds task to task-list, creates "task row"- elements
 let ulTaskList = document.getElementById('ul-task-list');
 
 //
@@ -45,7 +55,7 @@ inputTextTaskList.disabled = true;
 
 liTaskList.append(inputTextTaskList)
 
-//
+// Change task button
 let changeBtn = document.createElement('button');
 changeBtn.id = "change-btn";
 changeBtn.innerHTML = `Change`;
@@ -53,11 +63,14 @@ changeBtn.innerHTML = `Change`;
 liTaskList.append(changeBtn)
 
 changeBtn.addEventListener('click', function(e) {
-    let clickedBtn = e.target;
+    editTask(e);
+})
 
-    if(clickedBtn.innerHTML == `Change`) {
-        clickedBtn.innerHTML = `Save`;
-        inputTextTaskList.disabled = false;
+function editTask(e) { 
+
+    if(e.target.innerHTML == `Change`) {
+        e.target.innerHTML = `Save`;
+        e.target.previousSibling.disabled = false;
 
     } else {
         let existingErrorMessage = document.getElementById('error-message')
@@ -67,19 +80,19 @@ changeBtn.addEventListener('click', function(e) {
             existingErrorMessage.remove()
             
         
-        } if(inputTextTaskList.value.length == 0 || !inputTextTaskList.value.trim()){
+        } if(e.target.previousSibling.value.length == 0 || !e.target.previousSibling.value.trim()){
             let errorMessage = document.createElement('div')
             errorMessage.id = "error-message";
             errorMessage.innerHTML= `<p>Text is requirered </p>`;
-            liTaskList.append(errorMessage);
+            e.target.parentNode.append(errorMessage);
         } else {
-        clickedBtn.innerHTML = `Change`;
-        inputTextTaskList.disabled = true;
+        e.target.innerHTML = `Change`;
+        e.target.previousSibling.disabled = true;
     }}
+}
 
-})
 
-//
+// Delete task button
 let deleteBtn = document.createElement('button');
 deleteBtn.id = "delete-btn";
 deleteBtn.innerHTML =`Delete`;
@@ -87,42 +100,55 @@ deleteBtn.innerHTML =`Delete`;
 liTaskList.append(deleteBtn)
 
 deleteBtn.addEventListener('click', function(e) {
-    let clickedBtn = e.target;
-    clickedBtn.parentNode.remove();
-
+    
+deleteTask(e);
 })
+
+
+function deleteTask(e) {
+    e.target.parentNode.remove();
+
+    let deleteBtn = document.createElement('button');
+    deleteBtn.id = "delete-btn";
+    deleteBtn.innerHTML =`Delete`;
+
+    liTaskList.append(deleteBtn)
+}
+
+
 //
 let ulDoneList = document.getElementById('ul-done-list');
+
+
 
 //
 inputCheckbox.addEventListener('click', function(e) {
 
-    
-    let clickedBox = e.target;
-    clickedBox.parentNode.remove();
-    inputCheckbox.disabled = true;
-    ulDoneList.append(liTaskList);
-    
+    taskCompleted(e);
 })
+
+function taskCompleted(e) { 
+e.target.parentNode.remove();
+inputCheckbox.disabled = true;
+ulDoneList.append(liTaskList);
+}
+
 
 // Reset all button
 let resetBtn = document.getElementById('reset-btn');
 resetBtn.addEventListener('click', function(e) {
-
-    let clickedBtn = e.target;
-        document.getElementById('ul-task-list').innerHTML = "";
-        document.getElementById('ul-done-list').innerHTML = "";
-        clickedBtn.parentNode.innerHTML = `<p>Your list is empty!</p><span style='font-size:30px;'>&#9749;&#10024;</span>`;
-
+    resetList(e);
+    
     }
     
 )}
+}
 
-})
-
-//ist för remove, töm ul
-
-
-
+function resetList(e) {
+        document.getElementById('ul-task-list').innerHTML = "";
+        document.getElementById('ul-done-list').innerHTML = "";
+    
+        e.target.parentNode.innerHTML += `<h3>Your list is empty!</h3><span style='font-size:30px;'>&#9749; &#10024;</span>`;
+}
 
 
