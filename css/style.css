@@ -1,22 +1,36 @@
+/* 
+#app-con {
+
+    width: 20%;
+    height: 95%;
+    padding: 1em 2em;
+    background-color: rgb(251, 218, 231);
+    flex-direction: column;
+    border-radius: 25px;
+} */
+
+
 ul {
     list-style-type:none;
 }
 body {
     font-family: 'Spartan', sans-serif;
-    background: linear-gradient(to top right, rgb(140, 211, 135), rgb(196, 169, 214), rgb(232, 240, 131)) no-repeat fixed;
+    background: rgb(215, 187, 233);
+    /* display: flex;
+    justify-content: center; */
 }
 
 #input-text-task-list, #text-field {
     background-color: white;
     border: white;
-    border-radius: 50px;
+    border-radius: 5px;
     padding: 8px 20px;
     margin: 3px 10px;
 }
 
 
 #change-btn {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 50px;
     padding: 5px 15px; 
     margin: 2px;
@@ -24,7 +38,7 @@ body {
 }
 
 #add-btn {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 50px;
     padding: 0px 15px; 
     margin: 2px;
@@ -32,7 +46,7 @@ body {
 }
 
 #delete-btn {
-    background-color: rgb(170, 187, 169);
+    /* background-color: rgb(170, 187, 169); */
     border-radius: 50px;
     padding: 5px 15px; 
     margin: 2px;
@@ -40,7 +54,7 @@ body {
 }
 
 #reset-btn {
-    background-color: rgb(225, 200, 201);
+    /* background-color: rgb(225, 200, 201); */
     border-radius: 50px;
     padding: 15px 15px; 
     margin: 2px;
@@ -48,53 +62,53 @@ body {
 }
 
 #delete-btn:hover{
-    background-color: rgb(225, 200, 201);
+    /* background-color: rgb(225, 200, 201); */
 }
 
 #reset-btn:hover {
-    background-color: rgb(240, 164, 196);
+    /* background-color: rgb(240, 164, 196); */
 }
 #add-btn:hover, #change-btn:hover{
-    background-color: rgb(170, 187, 169);
+    /* background-color: rgb(170, 187, 169); */
     border: none;
 }
 
 #input-text-task-list:disabled {
-    background-color: rgb(235, 235, 235);
+    /* background-color: rgb(235, 235, 235); */
 }
 
 
 #task-list, #done-list, #fill-in-row, #error-message{
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin: 10px 20px;
 }
 
 #reset-container{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     margin: 50px;
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin: 60px 20px;
 
 }
 
 h3 {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin-top: 60px;
 }
 
 
 #error-message p{
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin: 10px 0px;
     width: 350px;
     font-size: 14px;
