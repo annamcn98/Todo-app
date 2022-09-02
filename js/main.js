@@ -1,15 +1,3 @@
-let ulDoneList = document.getElementById('ul-done-list');
-
-
-//When clicking Add-btn
-let addBtn = document.getElementById('add-btn');
-let resetBtn = document.getElementById('reset-btn');
-
-// addBtn.addEventListener('click', function(e) {
-
-//     addNewTask();
-// });
-
 let textField = document.getElementById('text-field');
 textField.addEventListener('keypress', function(e){
     if(e.key === "Enter"){
@@ -18,115 +6,86 @@ textField.addEventListener('keypress', function(e){
     }
 })
 
-
+let addBtn = document.getElementById('add-btn');
 addBtn.addEventListener('click', function(e){
 
     addNewTask();
 });
 
-
+let ulDoneList = document.getElementById('ul-done-list');
+let resetBtn = document.getElementById('reset-btn');
 function addNewTask(e) {
 
-
-    // if(document.querySelector("div span")) {
-    //     e.target.parentNode.parentNode.parentNode.childNodes[7].lastChild.remove();
-    //     e.target.parentNode.parentNode.parentNode.childNodes[7].lastChild.remove();
-    //     document.getElementById('reset-container').append(resetBtn);
-    // }
-
-
-    //Kolla över denna:
     if(document.querySelector("div span")) {
         document.querySelector("#reset-container h3").remove();
         document.querySelector("#reset-container span").remove();
-
         document.querySelector("#task-container h3").hidden = false; 
         document.querySelector("#done-container h3").hidden = false;        
         document.getElementById('reset-container').append(resetBtn);
     }
-    //
 
     //Error message when trying to sumbit empty text field
-    let existingErrorMessage = document.getElementById('error-message')
+    let existingErrorMessage = document.getElementById('error-message');
     if(existingErrorMessage){
-     existingErrorMessage.remove()
+     existingErrorMessage.remove();
     }
 
     if (textField.value === '' || !textField.value.trim()) {
-       let errorMessage = document.createElement('div')
+       let errorMessage = document.createElement('div');
         errorMessage.id = "error-message";
         errorMessage.innerHTML= `<p>You can't add an empty task</p>`;
         document.getElementById('fill-in-container').append(errorMessage);
 
     } else { 
 
-//Adds task to task-list, creates "task row"- elements
-let ulTaskList = document.getElementById('ul-task-list');
+    //Adds task to task-list, creates "task row"- elements
+    let ulTaskList = document.getElementById('ul-task-list');
+    let liTaskList = document.createElement('li');
+    liTaskList.id = "li-task-list";
+    ulTaskList.append(liTaskList);
 
-//
-let liTaskList = document.createElement('li');
-liTaskList.id = "li-task-list";
+    let inputCheckbox = document.createElement('input');
+    inputCheckbox.id = "input-checkbox";
+    inputCheckbox.setAttribute('type', 'checkbox');
+    liTaskList.append(inputCheckbox);
 
-ulTaskList.append(liTaskList);
+    let inputTextTaskList = document.createElement('input');
+    inputTextTaskList.id = "input-text-task-list";
+    inputTextTaskList.value = textField.value; 
+    textField.value = "";
+    inputTextTaskList.disabled = true;
+    liTaskList.append(inputTextTaskList);
 
-//
-let inputCheckbox = document.createElement('input');
-inputCheckbox.id = "input-checkbox";
-inputCheckbox.setAttribute('type', 'checkbox')
+    // Change task button
+    let changeBtn = document.createElement('button');
+    changeBtn.id = "change-btn";
+    changeBtn.innerHTML = `Change`;
+    liTaskList.append(changeBtn);
+    changeBtn.addEventListener('click', taskBtns.editTask);
 
-liTaskList.append(inputCheckbox)
+    // Delete task button
+    let deleteBtn = document.createElement('button');
+    deleteBtn.id = "delete-btn";
+    deleteBtn.innerHTML =`Delete`;
+    liTaskList.append(deleteBtn);
+    deleteBtn.addEventListener('click', taskBtns.deleteTask);
 
-//
-let inputTextTaskList = document.createElement('input');
-inputTextTaskList.id = "input-text-task-list";
+    //
+    inputCheckbox.addEventListener('click', taskBtns.taskCompleted);
 
-inputTextTaskList.value = textField.value; 
-textField.value = "";
-inputTextTaskList.disabled = true;
+    // Reset all button
+    resetBtn.addEventListener('click', resetList);
 
+        function resetList(e) {
+            ulTaskList.innerHTML = "";
+            ulDoneList.innerHTML = "";
+            document.querySelector("#task-container h3").hidden = true; 
+            document.querySelector("#done-container h3").hidden = true;
+            
+            e.target.parentNode.innerHTML = `<h3>Your list is empty!</h3><span style='font-size:30px;'>&#9749; &#10024;</span>`;
+        }
 
-liTaskList.append(inputTextTaskList)
-
-// Change task button
-let changeBtn = document.createElement('button');
-changeBtn.id = "change-btn";
-changeBtn.innerHTML = `Change`;
-
-liTaskList.append(changeBtn)
-
-changeBtn.addEventListener('click', taskBtns.editTask);
-
-
-// Delete task button
-let deleteBtn = document.createElement('button');
-deleteBtn.id = "delete-btn";
-deleteBtn.innerHTML =`Delete`;
-
-liTaskList.append(deleteBtn)
-
-deleteBtn.addEventListener('click', taskBtns.deleteTask);
-
-
-//
-inputCheckbox.addEventListener('click', taskBtns.taskCompleted);
-
-
-
-// Reset all button
-resetBtn.addEventListener('click', resetList);
-
-function resetList(e) {
-        // document.querySelectorAll("#task-container h3, #ul-task-list").innerHTML = "";
-        ulTaskList.innerHTML = "";
-        ulDoneList.innerHTML = "";
-        document.querySelector("#task-container h3").hidden = true; 
-        document.querySelector("#done-container h3").hidden = true;
-
-    
-        e.target.parentNode.innerHTML = `<h3>Your list is empty!</h3><span style='font-size:30px;'>&#9749; &#10024;</span>`;
-}
-
-}
+    }
 }
 
 const taskBtns = {
@@ -138,18 +97,16 @@ const taskBtns = {
             e.target.previousSibling.disabled = false;
     
         } else {
-            let existingErrorMessage = document.getElementById('error-message')
-    
-    
+            let existingErrorMessage = document.getElementById('error-message');
             if(existingErrorMessage){
-                existingErrorMessage.remove()
-                
-            
+                existingErrorMessage.remove();
+
             } if(e.target.previousSibling.value.length == 0 || !e.target.previousSibling.value.trim()){
-                let errorMessage = document.createElement('div')
+                let errorMessage = document.createElement('div');
                 errorMessage.id = "error-message";
-                errorMessage.innerHTML= `<p>Text is requirered </p>`;
+                errorMessage.innerHTML= `<p>Text is requirered to save task</p>`;
                 e.target.parentNode.append(errorMessage);
+            
             } else {
             e.target.innerHTML = `Change`;
             e.target.previousSibling.disabled = true;
