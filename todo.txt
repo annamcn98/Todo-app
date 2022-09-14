@@ -1,0 +1,18 @@
+TO DO:
+
+- Add limit for task quantity with funny quote
+- Use media queries to set width
+- style checkbox
+- fix task, done h3 bug
+- fix reset btn to flex-end
+- fix enter to "save"
+-be able to uncheck tasks
+
+- navbar to different lists, shopping list, packing list, this todo
+https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0
+
+
+
+DONE: 
+
+- 

@@ -1,3 +1,9 @@
+if(liTaskList = "undefined"){
+    document.querySelector("#task-container h3").hidden = true;
+    document.querySelector("#done-container h3").hidden = true;
+    document.getElementById('reset-container').hidden=true;
+}
+
 let textField = document.getElementById('text-field');
 textField.addEventListener('keypress', function(e){
     if(e.key === "Enter"){
@@ -16,11 +22,10 @@ let ulDoneList = document.getElementById('ul-done-list');
 let resetBtn = document.getElementById('reset-btn');
 function addNewTask(e) {
 
+
     if(document.querySelector("div span")) {
         document.querySelector("#reset-container h3").remove();
         document.querySelector("#reset-container span").remove();
-        document.querySelector("#task-container h3").hidden = false; 
-        document.querySelector("#done-container h3").hidden = false;        
         document.getElementById('reset-container').append(resetBtn);
     }
 
@@ -37,6 +42,9 @@ function addNewTask(e) {
         document.getElementById('fill-in-container').append(errorMessage);
 
     } else { 
+
+        document.querySelector("#task-container h3").hidden = false;        
+        document.getElementById('reset-container').hidden = false;
 
     //Adds task to task-list, creates "task row"- elements
     let ulTaskList = document.getElementById('ul-task-list');
@@ -82,7 +90,7 @@ function addNewTask(e) {
             document.querySelector("#task-container h3").hidden = true; 
             document.querySelector("#done-container h3").hidden = true;
             
-            e.target.parentNode.innerHTML = `<h3>Your list is empty!</h3><span style='font-size:30px;'>&#9749; &#10024;</span>`;
+            e.target.parentNode.innerHTML = `<h3>TIME FOR COFFEE!<br><br>Your list is empty</h3><span style='font-size:30px;'>&#9749; &#10024;</span>`;
         }
 
     }
@@ -121,6 +129,7 @@ const taskBtns = {
     taskCompleted(e) { 
         e.target.parentNode.remove();
         e.target.disabled = true;
+        document.querySelector("#done-container h3").hidden = false;        
         ulDoneList.append(e.target.parentNode);
         }
 }

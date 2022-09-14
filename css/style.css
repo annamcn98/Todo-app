@@ -1,121 +1,136 @@
-/* 
-#app-con {
+body {
+    font-family: 'Spartan', sans-serif;
+    background: #FCD8E3;
+}
 
-    width: 20%;
-    height: 95%;
-    padding: 1em 2em;
-    background-color: rgb(251, 218, 231);
+#outline-div {
+    display: flex;
     flex-direction: column;
-    border-radius: 25px;
-} */
+    background-color: white;
+    border-radius: 20px;
+    width: 580px;
+    margin:  auto;
+    margin-top: 10em;
+    padding: 10px;
+}
 
+#app-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffe9f0;
+    border-radius: 10px;
+    padding-bottom: 1.5em;
+    width: 550px;
+    margin:  auto;
+}
+
+#headline {
+    top:-70px;
+    position: relative;
+    background-color: white;
+    border-radius: 5px; 
+    padding: 1em 6.5em;
+}
 
 ul {
     list-style-type:none;
-}
-body {
-    font-family: 'Spartan', sans-serif;
-    background: rgb(215, 187, 233);
-    /* display: flex;
-    justify-content: center; */
+    padding-left: 0;
 }
 
-#input-text-task-list, #text-field {
+#input-text-task-list {
+    background-color: #ffe9f0;
+    border: none;
+    border-bottom: 2px solid #F24B4B;
+    padding: 8px 20px;
+    margin: 0.5em 10px;
+}
+
+#input-text-task-list:enabled {
     background-color: white;
-    border: white;
+}
+
+#text-field {
+    border:none;
     border-radius: 5px;
     padding: 8px 20px;
     margin: 3px 10px;
 }
 
+#input-checkbox:checked {
+    color: red;
+  }
 
-#change-btn {
-    /* background-color: white; */
-    border-radius: 50px;
+#change-btn, #add-btn {
+    color: #F24B4B;
+    background-color: #FCD8E3;
+    border: #FCD8E3 solid 2px;
+    border-radius: 8px;
     padding: 5px 15px; 
     margin: 2px;
-    border: none;
 }
 
-#add-btn {
-    /* background-color: white; */
-    border-radius: 50px;
-    padding: 0px 15px; 
-    margin: 2px;
-    border: none;
-}
 
 #delete-btn {
-    /* background-color: rgb(170, 187, 169); */
-    border-radius: 50px;
+    color: #F24B4B;
+    background-color:#FCD8E3;
+    border: #FCD8E3 solid 2px;
+    border-radius: 8px;
     padding: 5px 15px; 
     margin: 2px;
-    border:none;
 }
 
 #reset-btn {
-    /* background-color: rgb(225, 200, 201); */
-    border-radius: 50px;
-    padding: 15px 15px; 
-    margin: 2px;
+    color: #F24B4B;
+    background-color:white;
+    border-radius: 20px;
+    padding: 10px 15px; 
+    margin: 1em 0;
     border:none;
 }
 
-#delete-btn:hover{
-    /* background-color: rgb(225, 200, 201); */
+#delete-btn:hover, #add-btn:hover {
+    color: #FCD8E3;
+    background-color:#F24B4B;
+    border: #F24B4B solid 2px;
 }
 
 #reset-btn:hover {
-    /* background-color: rgb(240, 164, 196); */
-}
-#add-btn:hover, #change-btn:hover{
-    /* background-color: rgb(170, 187, 169); */
-    border: none;
+    color: #FCD8E3;
+    background-color: #F24B4B;
 }
 
-#input-text-task-list:disabled {
-    /* background-color: rgb(235, 235, 235); */
-}
-
-
-#task-list, #done-list, #fill-in-row, #error-message{
-    /* display: flex;
-    justify-content: center; */
-    margin: 10px 20px;
+#change-btn:hover{
+    color: #F24B4B;
+    background-color:white;
+    border: white solid 2px;
 }
 
 #reset-container{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    margin: 50px;
+    text-align: center;
 }
 
 h1 {
-    /* display: flex;
-    justify-content: center; */
-    margin: 60px 20px;
-
+    text-align: center;
+    color: #F24B4B;
+    font-family: inherit;
 }
 
 h3 {
-    /* display: flex;
-    justify-content: center; */
-    margin-top: 60px;
+    color: #F24B4B;
 }
 
+#reset-container h3, span, h4 {
+    color: #40263D;
+    text-align: center;
+}
 
-#error-message p{
-    /* display: flex;
-    justify-content: center; */
+#error-message p {
     margin: 10px 0px;
-    width: 350px;
+    width: 410px;
     font-size: 14px;
     padding: 15px 10px;
-    background-color: rgb(225, 200, 201);
-    color: rgb(146, 63, 66);
-    /* font-weight: bolder; */
-    border-radius: 10px;
+    background-color: #FCD8E3;
+    color: #F24B4B;
 }
 
