@@ -69,6 +69,13 @@ function addNewTask(e) {
     changeBtn.id = "change-btn";
     changeBtn.innerHTML = `Change`;
     liTaskList.append(changeBtn);
+
+    // inputTextTaskList.addEventListener('keypress', function(e){
+    //     if(e.key === "Enter"){
+    //         e.preventDefault();
+    //         taskBtns.editTask();
+    //     }    
+    // })
     changeBtn.addEventListener('click', taskBtns.editTask);
 
     // Delete task button

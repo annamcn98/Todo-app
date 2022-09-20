@@ -1,13 +1,14 @@
 TO DO:
 
-- Add limit for task quantity with funny quote
 - Use media queries to set width
-- style checkbox
-- fix task, done h3 bug
-- fix reset btn to flex-end
 - fix enter to "save"
--be able to uncheck tasks
+- fix error message div bug
 
+
+
+Extra if time:
+-be able to uncheck tasks
+- Add limit for task quantity with funny quote
 - navbar to different lists, shopping list, packing list, this todo
 https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0
 
@@ -15,4 +16,5 @@ https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0
 
 DONE: 
 
-- 
+- fix reset btn to flex-end
+- fix task, done h3 bug

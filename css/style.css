@@ -33,6 +33,15 @@ body {
     padding: 1em 6.5em;
 }
 
+#task-container {
+    margin-top: 2em;
+}
+
+#fill-in-container {
+    /* width: 430px; */
+
+}
+
 ul {
     list-style-type:none;
     padding-left: 0;
